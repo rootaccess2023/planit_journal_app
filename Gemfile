@@ -65,3 +65,13 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+
+# Simple Calendar
+gem "simple_calendar"
+
+# TailwindCSS
+gem "tailwindcss-rails", "~> 2.6"
+
+# Fontawesome v4.0
+gem "font-awesome-rails"
