@@ -11,8 +11,16 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+  <body class="h-screen">
+    <div class="">
+      <div class="flex justify-center">
+      <%= render "layouts/nav" %>
+      </div>
+      <div class="flex justify-center">
+      <%= render "layouts/calendar"%>
+      </div>
+    </div>
+    <main>
       <%= yield %>
     </main>
   </body>
