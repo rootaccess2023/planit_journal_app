@@ -11,16 +11,13 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="h-screen">
+  <body class="h-screen bg-blue-50">
     <div class="">
       <div class="flex justify-center">
-      <%= render "layouts/nav" %>
-      </div>
-      <div class="flex justify-center">
-      <%= render "layouts/calendar"%>
+        <%= render "layouts/nav" %>
       </div>
     </div>
-    <main>
+    <main class="w-full flex items-center justify-center">
       <%= yield %>
     </main>
   </body>

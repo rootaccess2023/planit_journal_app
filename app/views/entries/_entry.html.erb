@@ -1,27 +1,46 @@
-<div id="<%= dom_id entry %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Category:</strong>
-    <%= entry.category %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
-    <%= entry.title %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Description:</strong>
-    <%= entry.description %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Start time:</strong>
-    <%= entry.start_time %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">End time:</strong>
-    <%= entry.end_time %>
-  </p>
-
-</div>
+<%= link_to entry_path(entry) do %>
+  <div class="bg-white rounded shadow mb-4">
+    <div class="flex p-2 gap-2">
+      <section class="w-20">
+        <div class="h-12 flex justify-center items-center bg-gray-200">
+          <span class="text-4xl">
+            <% case entry.category %>
+              <% when "Work" %>
+                <%= fa_icon "briefcase" %>
+              <% when "Personal" %>
+                <%= fa_icon "user" %>
+              <% when "Health" %>
+                <%= fa_icon "heartbeat" %>
+              <% when "Finance" %>
+                <%= fa_icon "money" %>
+              <% when "Hobbies" %>
+                <%= fa_icon "paint-brush" %>
+              <% when "Goals" %>
+                <%= fa_icon "bullseye" %>
+              <% when "Notes" %>
+                <%= fa_icon "sticky-note" %>
+              <% when "Reminders" %>
+                <%= fa_icon "bell" %>
+              <% else %>
+                <%= fa_icon "bullseye" %>
+            <% end %>
+          </span>
+        </div>
+        <div class="bg-blue-400 font-semibold text-white text-xs text-center">
+          <%= entry.category.upcase%>
+        </div>
+      </section>
+      <section class="flex flex-col justify-center max-w-[17.5rem]">
+        <h1 class="font-semibold">
+          <%= entry.title%>
+        </h1>
+        <p class="text-xs">
+          <%= entry.start_time.strftime("%H:%M") %> to <%= entry.end_time.strftime("%H:%M")%>
+        </p>
+        <p class="text-sm truncate">
+          <%= entry.description%>
+        </p>
+      </section>
+    </div>
+  </div>
+<% end %>

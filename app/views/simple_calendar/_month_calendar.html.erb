@@ -1,8 +1,17 @@
 <div class="simple-calendar">
   <div class="calendar-heading">
-    <time datetime="<%= start_date.strftime('%Y-%m') %>" class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></time>
+    <time datetime="<%= start_date.strftime('%Y-%m') %>" class="calendar-title">
+    <h1 class="text-center text-2xl font-semibold tracking-tighter">
+      <span>
+        <%= t('date.month_names')[start_date.month].upcase %>
+      </span>
+      <span>
+        <%= start_date.year %>
+      </span>
+    </h1>
+    </time>
 
-    <nav>
+    <nav class="text-center">
       <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
       <%= link_to t('simple_calendar.today', default: 'Today'), calendar.url_for_today_view %>
       <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
@@ -13,7 +22,7 @@
     <thead>
       <tr>
         <% date_range.slice(0, 7).each do |day| %>
-          <th><%= t('date.abbr_day_names')[day.wday] %></th>
+          <th class="p-2"><%= t('date.abbr_day_names')[day.wday] %></th>
         <% end %>
       </tr>
     </thead>
@@ -23,7 +32,9 @@
         <tr>
           <% week.each do |day| %>
             <%= content_tag :td, class: calendar.td_classes_for(day) do %>
-              <%= link_to day.strftime("%d"), entries_path(date: day) %>
+              <div class="flex justify-center items-center">
+              <%= link_to day.strftime("%d"), entries_path(date: day), class: "p-2" %>
+              </div>
             <% end %>
           <% end %>
         </tr>

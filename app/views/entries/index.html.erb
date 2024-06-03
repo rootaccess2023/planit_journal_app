@@ -1,21 +1,26 @@
-<div>
-  <% if notice.present? %>
-    <p id="notice"><%= notice %></p>
-  <% end %>
-
-  <% content_for :title, "Entries" %>
-
-  <div>
-    <h1>Entries</h1>
-    <%= link_to "New entry", new_entry_path %>
+<div class="w-full flex flex-col px-8">
+  <div class="w-full flex justify-center p-8 ">
+    <%= render "layouts/calendar"%>
   </div>
-
-  <div id="entries">
-    <% @entries.each do |entry| %>
-      <%= render entry %>
-      <p>
-        <%= link_to "Show this entry", entry %>
-      </p>
+  <div>
+    <% if notice.present? %>
+      <p id="notice"><%= notice %></p>
     <% end %>
+    <% content_for :title, "Entries" %>
+    <div class="flex justify-between items-center mb-2">
+      <h1 class="text-3xl font-semibold">Plans</h1>
+      <%= link_to new_entry_path do %>
+      <span class="font-semibold hover:bg-blue-500 hover:text-white px-1 rounded cursor-pointer">
+        <%= fa_icon "plus-square" %>
+        ADD
+      </span>
+      <% end %>
+    </div>
+    <div id="entries" class="h-64 overflow-scroll">
+      <% @entries.each do |entry| %>
+        <%= render entry %>
+      <% end %>
+    </div>
   </div>
 </div>
+
