@@ -29,9 +29,9 @@
         <tr>
           <% week.each do |day| %>
             <%= content_tag :td, class: calendar.td_classes_for(day) do %>
-              <% instance_exec(day, calendar.sorted_events_for(day), &passed_block) %>
+              <%= link_to day.strftime("%d"), entries_path(date: day) %>
             <% end %>
-          <% end %>
+         <% end %>
         </tr>
       <% end %>
     </tbody>
