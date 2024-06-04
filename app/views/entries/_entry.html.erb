@@ -35,7 +35,7 @@
           <%= entry.title%>
         </h1>
         <p class="text-xs">
-          <%= entry.start_time.strftime("%H:%M") %> to <%= entry.end_time.strftime("%H:%M")%>
+          <%= entry.start_time.strftime("%H:%M %p") %> to <%= entry.end_time.strftime("%H:%M %p")%>
         </p>
         <p class="text-sm truncate">
           <%= entry.description%>

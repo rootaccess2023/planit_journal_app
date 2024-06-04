@@ -1,0 +1,61 @@
+<main class="flex flex-col gap-6 p-8">
+    <section class="flex justify-between">
+      <div class="text-2xl text-gray-500 hover:text-gray-800">
+        <%= link_to entries_path do %>
+            <%= fa_icon "arrow-left"%>
+        <% end %>
+      </div>
+      <div class="flex text-xl gap-2">
+        <span class="text-gray-500 hover:text-blue-600">
+            <%= link_to edit_entry_path(@entry) do %>
+                <%= fa_icon "pencil"%>
+            <% end %>
+        </span>
+        <span class="text-gray-500 hover:text-red-600">
+            <%= button_to @entry, method: :delete, data: {turbo_confirm: "Are you sure?"} do %>
+                <%= fa_icon "trash"%>
+            <% end %>
+        </span>
+      </div>
+    </section>
+    <section class="flex gap-4">
+            <span class="h-20 w-24 flex justify-center items-center bg-gray-300 text-5xl rounded">
+              <% case @entry.category %>
+                <% when "Work" %>
+                    <%= fa_icon "briefcase", class: "text-blue-600" %>
+                <% when "Personal" %>
+                    <%= fa_icon "user", class: "text-sky-600" %>
+                <% when "Health" %>
+                    <%= fa_icon "heartbeat", class: "text-red-600" %>
+                <% when "Finance" %>
+                    <%= fa_icon "money", class: "text-green-600" %>
+                <% when "Hobbies" %>
+                    <%= fa_icon "paint-brush", class: "text-purple-600" %>
+                <% when "Goals" %>
+                    <%= fa_icon "bullseye", class: "text-orange-600" %>
+                <% when "Notes" %>
+                    <%= fa_icon "sticky-note", class: "text-yellow-800" %>
+                <% when "Reminders" %>
+                    <%= fa_icon "bell", class: "text-pink-600" %>
+                <% else %>
+                    <%= fa_icon "bullseye", class: "text-gray-600" %>
+                <% end %>
+            </span>
+        <div class="flex flex-col justify-center">
+            <h2 class="text-sm font-semibold">
+                <%= @entry.category.upcase%>
+            <h2>
+            <h1 class="text-2xl font-semibold pb-1">
+                <%= @entry.title%>
+            </h1>
+            <p class="text-xs">
+                <%= @entry.start_time.strftime("%H:%M %p") %> to <%= @entry.end_time.strftime("%H:%M %p")%>
+            </p>
+        </div>
+    </section>
+    <section>
+        <p class="bg-white text-justify p-6 shadow-md rounded">
+          <%= @entry.description%>
+        </p>
+    </section>
+</main>
