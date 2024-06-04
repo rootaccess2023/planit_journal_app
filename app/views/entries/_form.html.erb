@@ -10,34 +10,50 @@
       </ul>
     </div>
   <% end %>
+  <main class="w-full flex flex-col gap-4">
+    <div class="w-full flex flex-col gap-1">
+      <h1>
+        <%= form.label :category, class: "font-semibold" %>
+      </h1>
+      <span>
+      <%= form.select :category, options_for_select(["Work", "Personal", "Health", "Finance", "Hobbies", "Goals", "Notes", "Reminders"]), {}, class: "w-full rounded border-none shadow" %>
+      </span>
+    </div>
 
-  <div class="my-5">
-    <%= form.label :category %>
-    <%= form.select :category, options_for_select(["Work", "Personal", "Health", "Finance", "Hobbies", "Goals", "Notes", "Reminders"]), {}, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+    <div class="flex flex-col gap-1">
+      <h1>
+      <%= form.label :title, class: "font-semibold" %>
+      </h1>
+      <span>
+      <%= form.text_field :title, class: "w-full rounded border-none shadow" %>
+      </span>
+    </div>
 
+    <div class="flex flex-col gap-1">
+      <h1>
+      <%= form.label :start_time, class: "font-semibold" %>
+      </h1>
+      <span>
+      <%= form.datetime_field :start_time, class: "w-full rounded border-none shadow" %>
+      </span>
+    </div>
 
-  <div class="my-5">
-    <%= form.label :title %>
-    <%= form.text_field :title, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+    <div class="flex flex-col gap-1">
+      <h1>
+      <%= form.label :end_time, class: "font-semibold" %>
+      </h1>
+      <span>
+      <%= form.datetime_field :end_time, class: "w-full rounded border-none shadow"  %>
+      </span>
+    </div>
 
-  <div class="my-5">
-    <%= form.label :description %>
-    <%= form.text_area :description, rows: 4, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+    <div>
+      <%= form.label :description, class: "font-semibold" %>
+      <%= form.text_area :description, rows: 4.5, class: "w-full text-justify rounded border-none shadow" %>
+    </div>
 
-  <div class="my-5">
-    <%= form.label :start_time %>
-    <%= form.datetime_field :start_time, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :end_time %>
-    <%= form.datetime_field :end_time, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
-  </div>
+    <div class="flex justify-center mt-4">
+      <%= form.submit class: "bg-green-500 font-semibold text-white p-2 rounded cursor-pointer" %>
+    </div>
+  </main>
 <% end %>

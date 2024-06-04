@@ -1,8 +1,17 @@
-<div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">Editing entry</h1>
-
+<div class="flex flex-col mx-auto md:w-2/3 gap-4 p-8">
+  <section class="flex justify-between">
+      <div class="text-2xl text-gray-500 hover:text-gray-800">
+        <%= link_to @entry do %>
+            <%= fa_icon "arrow-left"%>
+        <% end %>
+      </div>
+      <div class="flex text-xl gap-2">
+        <span class="text-gray-500 hover:text-blue-600">
+            <%= link_to entries_path do %>
+                <%= fa_icon "home"%>
+            <% end %>
+        </span>
+      </div>
+  </section>
   <%= render "form", entry: @entry %>
-
-  <%= link_to "Show this entry", @entry, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  <%= link_to "Back to entries", entries_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
 </div>
