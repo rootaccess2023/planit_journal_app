@@ -3,7 +3,7 @@
     <time datetime="<%= start_date.strftime('%Y-%m') %>" class="calendar-title">
     <h1 class="text-center text-2xl font-semibold tracking-tighter">
       <span>
-        <%= t('date.month_names')[start_date.month].upcase %>
+        <%= t('date.month_names')[start_date.month] %>
       </span>
       <span>
         <%= start_date.year %>
@@ -11,10 +11,22 @@
     </h1>
     </time>
 
-    <nav class="text-center">
-      <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
-      <%= link_to t('simple_calendar.today', default: 'Today'), calendar.url_for_today_view %>
-      <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
+    <nav class="flex justify-between items-center px-4">
+      <div class="text-xl text-gray-500 hover:text-gray-800">
+        <%= link_to calendar.url_for_previous_view do %>
+          <%= fa_icon "chevron-circle-left"%>
+        <% end %>
+      </div>
+      <div>
+        <%= link_to calendar.url_for_today_view do %>
+          <p class="font-bold text-xs text-white bg-gray-400 px-2 hover:bg-gray-800 rounded">TODAY</p>
+        <% end %>
+      </div>
+      <div class="text-xl text-gray-500 hover:text-gray-800">
+        <%= link_to calendar.url_for_next_view do %>
+          <%= fa_icon "chevron-circle-right"%>
+        <% end %>
+      </div>
     </nav>
   </div>
 
@@ -33,7 +45,7 @@
           <% week.each do |day| %>
             <%= content_tag :td, class: calendar.td_classes_for(day) do %>
               <div class="flex justify-center items-center">
-              <%= link_to day.strftime("%d"), entries_path(date: day), class: "p-2" %>
+              <%= link_to day.strftime("%d"), entries_path(date: day), class: "p-2 #{'bg-blue-400 font-bold text-white rounded' if day == @selected_date}" %>
               </div>
             <% end %>
           <% end %>

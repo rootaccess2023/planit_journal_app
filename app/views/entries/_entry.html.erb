@@ -30,14 +30,14 @@
           <%= entry.category.upcase%>
         </div>
       </section>
-      <section class="flex flex-col justify-center max-w-[17.5rem]">
+      <section class="flex flex-col justify-center">
         <h1 class="font-semibold">
           <%= entry.title%>
         </h1>
         <p class="text-xs">
           <%= entry.start_time.strftime("%H:%M %p") %> to <%= entry.end_time.strftime("%H:%M %p")%>
         </p>
-        <p class="text-sm truncate">
+        <p class="text-sm max-w-[62vw] md:max-w-[25vw] truncate">
           <%= entry.description%>
         </p>
       </section>
