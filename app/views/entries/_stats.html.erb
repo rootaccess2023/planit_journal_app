@@ -1,81 +1,10 @@
-<main>
-    <details close>
-        <summary class="bg-gray-300 font-semibold shadow text-center p-2 mb-2 rounded tracking-wider cursor-pointer hover:bg-blue-300">Regular Holidays</summary>
-            <div class="flex max-h-[7rem] bg-white overflow-y-scroll p-4 mb-2 rounded-b shadow">
-                <section class="text-sm pr-6">
-                    <p>January 1</p>
-                    <p>March 28</p>
-                    <p>March 29</p>
-                    <p>April 9</p>
-                    <p>April 10</p>
-                    <p>May 1</p>
-                    <p>June 12</p>
-                    <p>August 26</p>
-                    <p>November 30</p>
-                    <p>December 25</p>
-                    <p>December 30</p>
-                </section>
-                <section class="text-sm">
-                    <p>New Year’s Day</p>
-                    <p>Maundy Thursday</p>
-                    <p>Good Friday</p>
-                    <p>Day of Valor (Araw ng Kagitingan)</p>
-                    <p>Eid'l Fitr</p>
-                    <p>Labor Day</p>
-                    <p>Independence Day</p>
-                    <p>National Heroes Day</p>
-                    <p>Bonifacio Day</p>
-                    <p>Christmas Day</p>
-                    <p>Rizal Day</p>
-                </section>
-            </div>
-    </details>
-    <details close>
-        <summary class="bg-gray-300 font-semibold shadow text-center p-2 mb-2 rounded tracking-wider cursor-pointer hover:bg-blue-300">Special Non-Working Holidays</summary>
-            <div class="flex max-h-[7rem] bg-white overflow-y-scroll p-4 mb-2 rounded-b shadow">
-                <section class="text-sm pr-6">
-                    <p>February 10</p>
-                    <p>March 30</p>
-                    <p>August 21</p>
-                    <p>November 1</p>
-                    <p>November 2</p>
-                    <p>December 8</p>
-                    <p>December 24</p>
-                    <p>December 31</p>
-                </section>
-                <section class="text-sm">
-                    <p>Chinese New Year</p>
-                    <p>Black Saturday</p>
-                    <p>Ninoy Aquino Day</p>
-                    <p>All Saints’ Day</p>
-                    <p>All Souls’ Day</p>
-                    <p>Feast of the Immaculate Conception of Mary</p>
-                    <p>Christmas Eve</p>
-                    <p>Last Day of the Year</p>
-                </section>
-            </div>
-    </details>
-    <details close>
-        <summary class="bg-gray-300 font-semibold shadow text-center p-2 mb-2 rounded tracking-wider cursor-pointer hover:bg-blue-300">List of Long Weekends</summary>
-            <div class="flex max-h-[7rem] bg-white overflow-y-scroll p-4 mb-2 rounded-b shadow">
-            <section class="text-sm pr-6">
-                <p>December 30, 2023 to January 1, 2024</p>
-                <p>February 9 to 11, 2024</p>
-                <p>March 28 to 31, 2024</p>
-                <p>April 6 to 10, 2024</p>
-                <p>August 24 to 26, 2024</p>
-                <p>November 1 to 3, 2024</p>
-                <p>December 28 to December 31, 2024</p>
-            </section>
-            <section class="text-sm">
-                <p>Three days</p>
-                <p>Three days</p>
-                <p>Four days</p>
-                <p>Five days</p>
-                <p>Three days</p>
-                <p>Three days</p>
-                <p>Three days</p>
-            </section>
-            </div>
-    </details>
+<main class="flex flex-col gap-4">
+    <h1 class="text-sm text-center font-semibold">HOLIDAYS</h1>
+    <ul>
+    <% @holidays_in_current_month.each do |holiday, date| %>
+        <li class="text-center font-bold p-2 mb-4 bg-blue-400 text-white rounded shadow cursor-pointer">
+            <%= "#{date} #{holiday}" %>
+        </li>
+    <% end %>
+    </ul>
 </main>

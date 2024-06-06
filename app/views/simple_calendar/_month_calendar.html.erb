@@ -45,7 +45,9 @@
           <% week.each do |day| %>
             <%= content_tag :td, class: calendar.td_classes_for(day) do %>
               <div class="flex justify-center items-center">
-              <%= link_to day.strftime("%d"), entries_path(date: day), class: "p-2 #{'bg-blue-400 font-bold text-white rounded' if day == @selected_date}" %>
+                <%= link_to entries_path(date: day.strftime("%Y-%m-%d")), class: "p-2 #{'bg-blue-400 font-bold text-white rounded' if day == @selected_date}" do %>
+                  <%= day.strftime("%d") %>
+                <% end %>
               </div>
             <% end %>
           <% end %>

@@ -5,7 +5,33 @@ class EntriesController < ApplicationController
   def index
     @selected_date = params[:date]&.to_date
     @selected_date ||= Date.today
+    @current_month = @selected_date.strftime("%B")
     @entries = Entry.where("DATE(start_time) = ?", @selected_date)
+    @holidays = {
+      "New Year’s Day" => "January 1",
+      "Chinese New Year" => "February 10",
+      "Maundy Thursday" => "March 28",
+      "Good Friday" => "March 29",
+      "Black Saturday" => "March 30",
+      "Day of Valor (Araw ng Kagitingan)" => "April 9",
+      "Eid'l Fitr" => "April 10",
+      "Labor Day" => "May 1",
+      "Independence Day" => "June 12",
+      "Ninoy Aquino Day" => "August 21",
+      "National Heroes Day" => "August 26",
+      "All Saints’ Day" => "November 1",
+      "All Souls’ Day" => "November 2",
+      "Bonifacio Day" => "November 30",
+      "Feast of the Immaculate Conception of Mary" => "December 8",
+      "Christmas Eve" => "December 24",
+      "Christmas Day" => "December 25",
+      "Rizal Day" => "December 30",
+      "Last Day of the Year" => "December 31"
+    }
+    @holidays_in_current_month = @holidays.select { |_, date| Date.parse(date).strftime("%B") == @current_month }
+    if @holidays_in_current_month.empty?
+      @holidays_in_current_month["Life is too short to wait for holidays to have a good time. Embrace the ordinary moments and make them extraordinary. 🎉" ] = nil
+    end
   end
 
   def show
