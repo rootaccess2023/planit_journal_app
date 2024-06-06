@@ -1,5 +1,15 @@
-<div class="h-14 w-full flex items-center justify-center bg-blue-700 md:h-24 transition-all ease-in-out">
+<div class="h-14 w-full flex items-center justify-between px-8 bg-blue-700 md:h-24 md:max-w-2/3 md:mx-auto md:px-16 transition-all ease-in-out">
     <h1 class="font-bold text-white text-2xl md:text-4xl">
         <span class="text-[1.4rem] -tracking-[2px] md:text-4xl md:-tracking-[4px]">PLAN</span><span class="italic text-blue-300 tracking-tighter">it</span>
     </h1>
+    <div class="flex gap-2 text-lg text-gray-400 md:text-2xl md:gap-4">
+        <span class="hover:text-white cursor-pointer">
+            <%= fa_icon "user-circle"%>
+        </span>
+        <span class="hover:text-white">
+        <%= button_to destroy_user_session_path, method: :delete, data: {turbo_confirm: "Are you sure?" } do %>
+            <%= fa_icon "sign-out"%>
+        <% end %>
+        </span>
+    </div>
 </div>
