@@ -1,44 +1,44 @@
 <%= link_to entry_path(entry) do %>
-  <div class="bg-white rounded shadow mb-4">
+  <div class="bg-white rounded shadow mx-4 mt-1 mb-4 group hover:scale-105 transition-all ease-in-out">
     <div class="flex p-2 gap-2">
       <section class="w-20">
         <div class="h-12 flex justify-center items-center bg-gray-200">
           <span class="text-4xl">
             <% case entry.category %>
               <% when "Work" %>
-                <%= fa_icon "briefcase" %>
+                <%= fa_icon "briefcase", class: "group-hover:text-blue-600" %>
               <% when "Personal" %>
-                <%= fa_icon "user" %>
+                <%= fa_icon "user", class: "group-hover:text-sky-600" %>
               <% when "Health" %>
-                <%= fa_icon "heartbeat" %>
+                <%= fa_icon "heartbeat", class: "group-hover:text-red-600" %>
               <% when "Finance" %>
-                <%= fa_icon "money" %>
+                <%= fa_icon "money", class: "group-hover:text-green-600" %>
               <% when "Hobbies" %>
-                <%= fa_icon "paint-brush" %>
+                <%= fa_icon "paint-brush", class: "group-hover:text-purple-600" %>
               <% when "Goals" %>
-                <%= fa_icon "bullseye" %>
+                <%= fa_icon "bullseye", class: "group-hover:text-orange-600" %>
               <% when "Notes" %>
-                <%= fa_icon "sticky-note" %>
+                <%= fa_icon "sticky-note", class: "group-hover:text-yellow-800" %>
               <% when "Reminders" %>
-                <%= fa_icon "bell" %>
+                <%= fa_icon "bell", class: "group-hover:text-pink-600" %>
               <% else %>
-                <%= fa_icon "bullseye" %>
+                <%= fa_icon "coffee", class: "group-hover:text-yellow-950" %>
             <% end %>
           </span>
         </div>
         <div class="bg-blue-400 font-semibold text-white text-xs text-center">
-          <%= entry.category.upcase%>
+          <%= entry.category.upcase %>
         </div>
       </section>
       <section class="flex flex-col justify-center">
         <h1 class="font-semibold">
-          <%= entry.title%>
+          <%= entry.title %>
         </h1>
         <p class="text-xs">
-          <%= entry.start_time.strftime("%H:%M %p") %> to <%= entry.end_time.strftime("%H:%M %p")%>
+          <%= entry.start_time.strftime("%H:%M %p") %> to <%= entry.end_time.strftime("%H:%M %p") %>
         </p>
-        <p class="text-sm max-w-[62vw] md:max-w-[25vw] truncate">
-          <%= entry.description%>
+        <p class="text-sm max-w-[55vw] md:max-w-[25vw] truncate">
+          <%= entry.description %>
         </p>
       </section>
     </div>

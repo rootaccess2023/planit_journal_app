@@ -3,23 +3,23 @@
             <span class="h-20 w-24 flex justify-center items-center bg-gray-300 text-5xl rounded">
               <% case @entry.category %>
                 <% when "Work" %>
-                    <%= fa_icon "briefcase", class: "text-blue-600" %>
+                    <%= fa_icon "briefcase", class: "text-blue-600 imageRotateHorizontal" %>
                 <% when "Personal" %>
-                    <%= fa_icon "user", class: "text-sky-600" %>
+                    <%= fa_icon "user", class: "text-sky-600 imageRotateHorizontal" %>
                 <% when "Health" %>
-                    <%= fa_icon "heartbeat", class: "text-red-600" %>
+                    <%= fa_icon "heartbeat", class: "text-red-600 imageRotateHorizontal" %>
                 <% when "Finance" %>
-                    <%= fa_icon "money", class: "text-green-600" %>
+                    <%= fa_icon "money", class: "text-green-600 imageRotateHorizontal" %>
                 <% when "Hobbies" %>
-                    <%= fa_icon "paint-brush", class: "text-purple-600" %>
+                    <%= fa_icon "paint-brush", class: "text-purple-600 imageRotateHorizontal" %>
                 <% when "Goals" %>
-                    <%= fa_icon "bullseye", class: "text-orange-600" %>
+                    <%= fa_icon "bullseye", class: "text-orange-600 imageRotateHorizontal" %>
                 <% when "Notes" %>
-                    <%= fa_icon "sticky-note", class: "text-yellow-800" %>
+                    <%= fa_icon "sticky-note", class: "text-yellow-800 imageRotateHorizontal" %>
                 <% when "Reminders" %>
-                    <%= fa_icon "bell", class: "text-pink-600" %>
+                    <%= fa_icon "bell", class: "text-pink-600 imageRotateHorizontal" %>
                 <% else %>
-                    <%= fa_icon "bullseye", class: "text-gray-600" %>
+                    <%= fa_icon "coffee", class: "text-yellow-950 imageRotateHorizontal" %>
                 <% end %>
             </span>
         <div class="flex flex-col justify-center">
