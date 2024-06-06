@@ -5,9 +5,6 @@
   <% if user_signed_in? %>
     <div class="flex gap-2 text-lg text-white md:text-2xl md:gap-4">
         <span class="cursor-pointer">
-            <%= fa_icon "user-circle" %>
-        </span>
-        <span class="cursor-pointer">
             <%= button_to destroy_user_session_path, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "bg-transparent border-none p-0" do %>
                 <%= fa_icon "sign-out" %>
             <% end %>
