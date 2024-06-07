@@ -6,14 +6,13 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <link rel="icon" type="image/svg+xml" href="https://i.postimg.cc/BZ5CL3Nm/journal-8293580.png" />  </head>
+    <link rel="icon" type="image/svg+xml" href="https://i.postimg.cc/BZ5CL3Nm/journal-8293580.png" />
+  </head>
 
   <body class="h-screen bg-blue-50">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%= render partial: "shared/notifications", locals: { message: flash[:notice]} %>
     <div class="">
       <div class="flex justify-center">
         <%= render "layouts/nav" %>
@@ -22,5 +21,16 @@
     <main class="w-full flex items-center justify-center">
       <%= yield %>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.turbo.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          var toast = document.getElementById('toast-success');
+          if (toast) {
+              setTimeout(function() {
+                  toast.classList.add('hidden');
+              }, 2000);
+          }
+      });
+    </script>
   </body>
 </html>

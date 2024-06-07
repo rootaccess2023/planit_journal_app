@@ -75,4 +75,9 @@ gem "tailwindcss-rails", "~> 2.6"
 
 # Fontawesome v4.0
 gem "font-awesome-rails"
+
+# Devise
 gem "devise", "~> 4.9"
+
+
+gem 'foreman'
